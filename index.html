@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<title> Square Root Finder By Yatin </title>
+		<style> 
+			* {font-size:75px; font-family:Times New Roman;}
+			body { background-color:lightyellow; }
+			h1 { background-color:lightorange; color:orange; width:50%; border-radius:30px;}
+		</style>
+		<script>
+			function find()
+			{
+				event.preventDefault();
+				let num= document.getElementById("num");
+				let ans = document.getElementById("ans");
+			
+				if (num.value == "")
+				{
+					alert("Number is empty");
+					ans.innerHTML = "";
+					num.focus();
+					return;	
+				}
+				
+				let n = parseFloat(num.value);
+				if (n <0.0)
+				{
+					alert("Number Cannot be Negative");
+					ans.innerHTML = "";
+					num.focus();
+					num.value ="";
+					return;
+				}	
+				let r = Math.sqrt(n);
+				let msg = "sqrt = " +r.toFixed(3);
+				ans.innerHTML = msg;
+		}
+		</script>
+	</head>
+
+	<body>
+		<center>
+			<h1> Square Root Finder </h1>
+			<form onsubmit="find()">
+			<input type ="number" step="any" placeholder="Enter Your Number" id="num"/>
+			<br> <br>
+			<input type="submit" value =" Find SQRT"/>
+			</form>
+			<h2 id="ans"/>
+		</center>
+	</body>
+
+</html>
